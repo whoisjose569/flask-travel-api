@@ -15,7 +15,7 @@ class ParticipantsRepository:
                     (?, ?, ?, ?)
             ''',(
                 participant_infos["id"],
-                participant_infos["trip"],
+                participant_infos["trip_id"],
                 participant_infos["emails_to_invite_id"],
                 participant_infos["name"]
             )
@@ -43,6 +43,6 @@ class ParticipantsRepository:
                     SET is_confirmed = 1
                 WHERE
                     id = ?
-            ''',(participant_id)
+            ''',(participant_id,)
         )
         self.__conn.commit()
